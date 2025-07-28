@@ -1,9 +1,97 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>My Site</title>
-</head>
-<body>
-  <h1>Hello, GitHub Pages!</h1>
-</body>
-</html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Love You <3 </title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="envelope-screen">
+      <button id="envelope-btn">💌</button>
+    </div>
+    
+    <div id="main-content" class="hidden">
+      <header>
+        <img src="https://i.pinimg.com/736x/55/5f/36/555f364c5594d5c56f6fe8b8ffb8b8d3.jpg" alt="Banner" class="banner-image"/>
+      <h1>Happy Birthday Ray!</h1>
+      </header>
+     
+      <section id="music-section">
+        <div class ="music-flex-container">
+          <div class ="left-box">
+          <div class="vinyl" id="vinyl-disc"></div>
+        <h2>Currently Playing: <span id="current-song">Cyberpunk</span></h2>
+        <audio id="audio-player" controls autoplay>
+          <source id="audio-source" src="assets/songs/Cyberpunk.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <button id="change-song-btn">Play another song</button>
+        </div>
+
+          <div class="right-box">
+            <h3>Author's Note</h3>
+            <p>Hiiiiiii this is emily. I made this app by scratch using HTML, CSS, and Javascript. Before making this I had some experience with HTML which is what im using to type this rn. CSS is used to basically decorate. My first time using it as you can tell. I had to code the font, border, and basically everthing you see here so bare with me.I know it looks sketch but I tried my best. Javascript was used to make the confetti animation, any buttons you see, and to make the music work. I tried to get rid of any bugs as possible.Chat GPT helped me fix the bugs cause I just made it worse. broke this a few times but yeah look around press buttons and stuff. I tried my best with the little skils I had and little time. I actually had fun making this.And yeah I hope you like this </H> </p>
+          </div>
+        </div>
+        </section>
+
+      <section id="games-section">
+        <h2>Games</h2>
+        <p>Click below to play a game</p>
+        <a href="game.html" class="game-link">Play Gambling Game</a>
+        </section>
+
+      <section id= "gallery">
+        <h2>Gallery</h2>
+        <div class="two-by-two">
+          <img src="assets/gallery/emily.jpg" class = "box" alt="Image 1">
+          <img src="assets/gallery/patrick.jpg" class = "box" alt="Image 2">
+          <img src="assets/gallery/idk.jpg" class = "box" alt="Image 3">
+          <img src="assets/gallery/giggles.jpg" class = "box" alt="Image 4">
+          </div>
+      </section>
+
+      <section id="links-section">
+        <h2>Random Links</h2>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=XR4tKXCMkX8">Random Song</a></li>
+        </ul>
+        <ul> 
+        <li><a href= "Extra/car.html" class = "car-page">Your Favorite Car</a></li></ul>
+      </section>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    
+      <script>
+        const songs=[
+          {name: "Cyberpunk", file: "assets/songs/Cyberpunk.mp3"},
+          {name: "Avalon", file: "assets/songs/Avalon.mp3"},
+          {name:"Beneath the Mask", file:"assets/songs/Beneath the Mask.mp3"},
+          {name:"Birdisland Kyuukou", file:"assets/songs/Birdisland Kyuukou.mp3"},
+          {name:"Counting Stars", file:"assets/songs/Counting Stars.mp3"}
+        ];
+        const audioPlayer = document.getElementById('audio-player');
+        const audioSource = document.getElementById('audio-source');
+        const currentSong = document.getElementById('current-song');
+        const changeSongBtn = document.getElementById('change-song-btn');
+        let currentIndex = 0
+          function playSong(index) {
+            currentIndex = index;
+            audioSource.src = songs[index].file;
+            audioPlayer.load();
+            audioPlayer.play();
+            currentSong.textContent = songs[index].name;
+          }
+          changeSongBtn.addEventListener('click', () => {
+            const nextIndex = (currentIndex + 1) % songs.length;
+            playSong(nextIndex);
+          });
+          playSong(currentIndex);
+      </script>
+    
+    <script src="./script.js"></script>
+  </body>
+  </html>
