@@ -1,0 +1,206 @@
+body{
+  font-family:'Comic Sans MS',cursive, sans-serif;
+  background-color: #C2D89F;
+  margin: 0;
+  padding: 0;
+  overflow-x:hidden;
+}
+.hidden {
+  display: none;
+}
+
+#envelope-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#envelope-btn {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.2);}
+100% { transform: scale(1);}
+}
+
+.hidden {
+  display: none;
+}
+#main-content {
+  padding: 2rem;
+  background-color: #C2D89F;
+  color: #333;
+  border: 5px solid #FF5C57;
+  max-width: 1000px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(255, 92, 87, 0.4);
+  border-radius: 15x;
+}
+
+header{
+  text-align: center;
+  background: linear-gradient(to right, #3E8DAF, #FF5C57);
+  padding: 1.5rem;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin:0;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+#music-section {
+  margin-top: 2rem;
+}
+
+#music-section audio {
+  width: 100%;
+  max-width: 300px;
+}
+
+#change-song-btn {
+  background-color: #FF5C57;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor:pointer;
+  margin-top:0.5rem;
+}
+.vinyl{
+  width: 200px;
+  height: 200px;
+  background-image: url('./assets/gallery/vinyl.png');
+  background-size: cover;
+  border-radius: 50%;
+  margin: 1rem auto;
+} 
+.spinning{
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);}
+ to { transform: rotate(360deg);}
+}
+
+#games-section,#links-section {
+  margin-top: 3rem;
+  background-color:#C2D89F;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 2px dashed #21677E;
+}
+
+#games-section h2, #links-section h2 {
+  color: #FF5C57
+}
+
+.game-link {
+  background-color: #FF5C57;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+#gallery {
+  margin-top: 3rem;
+  column-count:3;
+  column-gap: 1rem;
+}
+
+#gallery img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  break-inside: avoid;
+  transition: transform 0.2s ease;
+}
+
+#gallery img:hover {
+  transform: scale(1.03);
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  #music-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+  #gallery {
+    column-count: 1;
+  }
+
+  .two-by-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .two-by-two img.box{
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+.music-flex-container {
+  display: flex;
+  gap:2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left-box {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.right-box {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.right-box h3 {
+  color: #21677E;
+  font-size: 1.8rem;
+}
+
+.right-box p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
