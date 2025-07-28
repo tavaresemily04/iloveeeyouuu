@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro MP3 Player</title>
+  <link rel="stylesheet" href="assets/css/mp3.css" />
+</head>
+<body>
+  <div class="mp3-player">
+    <div class="screen">
+      <h2 id="screen-text">Choose a Playlist</h2>
+    </div>
+
+    <select id="playlistSelector">
+      <option value="chill">Chill</option>
+      <option value="party">Party</option>
+    </select>
+
+    <ul id="playlist" class="track-list"></ul>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div class="controls">
+      <button id="prevBtn">⏮️</button>
+      <button id="playBtn">▶️</button>
+      <button id="pauseBtn">⏸️</button>
+      <button id="nextBtn">⏭️</button>
+    </div>
+  </div>
+
+  <script src="assets/js/mp3.js"></script>
+</body>
+</html>
