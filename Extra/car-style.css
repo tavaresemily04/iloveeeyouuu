@@ -1,0 +1,147 @@
+body{
+  margin:0;
+  background-color: #000;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto
+}
+header{
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed #d67f7f;
+  z-index: 2;
+  position: relative;
+}
+header h1 {
+  color: #fff;
+  font-size: 3em;
+  text-shadow:
+    0 0 5px #f0f,
+  0 0 10px #f0f,
+  0 0 10px #0ff,
+  0 0 30px #0ff;
+}
+.car-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap:2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+.car-img {
+  width: 300px;
+  border:5px solid #8ca4b6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.car-text {
+  max-width: 400px;
+  font-size: 1.1rem;
+}
+.car-selection {
+display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap:2rem;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+
+.car-selection img {
+  width: 300px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 15px #0ff;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.car-selection img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0f0f, 0 0 45px #0ff;
+}
+.petals {
+  position: fixed;
+  inset:0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.petals span{
+  position: absolute;
+  top: -40px;
+  left: calc(var(--i));
+  width: 20px;
+  height: 20px;
+  background-image: url('https://64.media.tumblr.com/8a93b98c0dd6134369543c36f5476c7d/tumblr_nc9el2svSA1rmmgq6o1_400.gif');
+  background-size: cover;
+  animation: fall 12s linear infinite;
+  opacity: 0.8;
+
+}
+.petals span:nth-child(1) {--i:10%; animation-delay: 0s;}
+.petals span:nth-child(2) {--i:30%; animation-delay: 2s;}
+.petals span:nth-child(3) {--i:50%; animation-delay: 4s;}
+.petals span:nth-child(4) {--i:70%; animation-delay: 6s;}
+.petals span:nth-child(5) {--i:90%; animation-delay: 8s;}
+
+@keyframes fall {
+0% {
+  transform: translateX(0) rotate(0deg);
+opacity: 1;
+  }
+  100% {
+    transform: translateY( 120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+  .glow-title {
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 1rem;
+    text-shadow:
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #0ff,
+      0 0 30px #0ff;
+  }
+.glow-subtitle {
+  color: #ffd1dc;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 2px #ffd1dc,
+    0 0 8px #ff7eb9,
+    0 0 15px #ff007c,
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0%{
+    text-shadow:
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #0ff;
+  }
+  100% {
+    text-shadow:
+      0 0 15px #f0f,
+      0 0 25px #0ff,
+      0 0 35px #0ff;
+  }
+}
+
