@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scratch Card Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('your-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    canvas {
+      border: 3px solid #ff88aa;
+      border-radius: 20px;
+      box-shadow: 0 0 15px pink;
+    }
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 5px hotpink;
+      margin-bottom: 20px;
+    }
+    #homeBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: hotpink;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Scratch to Reveal Your Surprise!</h1>
+  <canvas id="scratchCanvas" width="300" height="300"></canvas>
+  <button id="homeBtn" onclick="location.href='index.html'">Back Home</button>
 
+  <script>
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const hiddenImage = new Image();
+    hiddenImage.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Heart_coraz%C3%B3n.svg/2000px-Heart_coraz%C3%B3n.svg.png';
+
+    hiddenImage.onload = () => {
+      ctx.drawImage(hiddenImage, 0, 0, canvas.width, canvas.height);
+      coverCanvas();
+    };
+
+    function coverCanvas() {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#c0c0c0';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = 'destination-out';
+    }
+
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', () => (isDrawing = true));
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      checkReveal();
+    });
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      ctx.beginPath();
+      ctx.arc(x, y, 15, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    function checkReveal() {
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      let transparentPixels = 0;
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        if (imageData.data[i + 3] === 0) transparentPixels++;
+      }
+      const percent = transparentPixels / (canvas.width * canvas.height) * 100;
+      if (percent > 50) {
+        setTimeout(() => alert("You unlocked a kiss 💋"), 100);
+      }
+    }
+  </script>
+</body>
+</html>
