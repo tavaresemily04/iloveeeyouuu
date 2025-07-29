@@ -48,7 +48,7 @@
     const ctx = canvas.getContext('2d');
 
     const hiddenImage = new Image();
-    hiddenImage.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Heart_coraz%C3%B3n.svg/2000px-Heart_coraz%C3%B3n.svg.png';
+    hiddenImage.src = 'https://i.pinimg.com/736x/43/81/6d/43816dcbcd37f5f49655d2fe2f0312b1.jpg';
 
     hiddenImage.onload = () => {
       ctx.drawImage(hiddenImage, 0, 0, canvas.width, canvas.height);
@@ -89,7 +89,7 @@
       }
       const percent = transparentPixels / (canvas.width * canvas.height) * 100;
       if (percent > 50) {
-        setTimeout(() => alert("You unlocked a kiss 💋"), 100);
+        setTimeout(() => alert("YIPPEEE You won"), 100);
       }
     }
   </script>
